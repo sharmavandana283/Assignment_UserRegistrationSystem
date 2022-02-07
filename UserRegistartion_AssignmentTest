@@ -1,0 +1,79 @@
+package com.Java8Features;
+
+import org.junit.Test;
+
+import junit.framework.Assert;
+
+public class UserRegistartion_AssignmentTest {
+	
+	@Test
+	public void validateUserName_HappyTest()
+	{		
+		boolean isValid = UserRegistartion_Assignment.checkIfFirstNameValid("Vandana");
+		Assert.assertEquals(true,isValid);
+	}
+
+	@Test
+	public void validateUserName_SadTest()
+	{		
+		boolean isValid = UserRegistartion_Assignment.checkIfFirstNameValid("1Va");
+		Assert.assertEquals(false,isValid);
+	}
+	
+	@Test
+	public void validateUserLastName_HappyTest()
+	{		
+		boolean isValid = UserRegistartion_Assignment.checkIfLastNameValid("Sharma");
+		Assert.assertEquals(true,isValid);
+	}
+
+	@Test
+	public void validateUserLastName_SadTest()
+	{		
+		boolean isValid = UserRegistartion_Assignment.checkIfLastNameValid("1Sharma");
+		Assert.assertEquals(false,isValid);
+	}
+	
+	@Test
+	public void validateUserEmail_HappyTest()
+	{		
+		boolean isValid = UserRegistartion_Assignment.checkIfEmailValid("vandy@gmail.com");
+		Assert.assertEquals(true,isValid);
+	}
+
+	@Test
+	public void validateUserEmail_SadTest()
+	{		
+		boolean isValid = UserRegistartion_Assignment.checkIfEmailValid("vandy");
+		Assert.assertEquals(false,isValid);
+	}
+	
+
+	@Test
+	public void validateUserMobile_HappyTest()
+	{		
+		boolean isValid = UserRegistartion_Assignment.checkIfMobileNumberValid("91 9538823772");
+		Assert.assertEquals(true,isValid);
+	}
+
+	@Test
+	public void validateUserMobile_SadTest()
+	{		
+		boolean isValid = UserRegistartion_Assignment.checkIfMobileNumberValid("9538823");
+		Assert.assertEquals(false,isValid);
+	}
+	
+	@Test
+	public void validateUserPassword_HappyTest() throws Exception
+	{		
+		boolean isValid = UserRegistartion_Assignment.checkIfPasswordValid("Password@2022");
+		Assert.assertEquals(true,isValid);
+	}
+
+	@Test
+	public void validateUserPassword_SadTest()
+	{		
+		boolean isValid = UserRegistartion_Assignment.checkIfPasswordValid("Password2022");
+		Assert.assertEquals(false,isValid);
+	}
+}
