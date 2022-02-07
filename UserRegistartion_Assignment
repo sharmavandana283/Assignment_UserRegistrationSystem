@@ -1,0 +1,147 @@
+package com.Java8Features;
+
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class UserRegistartion_Assignment {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);		
+		
+		//System.out.println("Enter First Name :");
+		String userFirstName = sc.nextLine();		
+		checkIfFirstNameValid(userFirstName);
+			
+		//System.out.println("Enter Last Name :");
+		String userLastName = sc.nextLine();		
+		checkIfLastNameValid(userLastName);
+		
+		//System.out.println("Enter Email :");
+		String email = sc.nextLine();		
+		checkIfEmailValid(email);
+		
+		//System.out.println("Enter Mobile No :");
+		String mobNo = sc.nextLine();		
+		checkIfMobileNumberValid(mobNo);
+		
+		//System.out.println("Enter Password :");
+		String password = sc.nextLine();		
+		checkIfPasswordValid(password);
+		
+	}
+
+	public static boolean checkIfFirstNameValid(String userFirstName) {
+		String regex = "^[A-Z]\\w{2,30}$";		  
+        Pattern p = Pattern.compile(regex);  
+        Matcher m = p.matcher(userFirstName);
+		
+		if(m.matches()) 
+		{
+			System.out.println("First Name is Valid... "); 
+			return true;
+		}
+		else 
+		{
+			System.out.println("First Name is not valid... ");
+			return false;
+		}		
+	}
+	
+	public static boolean checkIfLastNameValid(String userLastName) {
+		String regex = "^[A-Z]\\w{2,30}$";		  
+        Pattern p = Pattern.compile(regex);  
+        Matcher m = p.matcher(userLastName);
+		
+		if(m.matches())
+		{
+		   System.out.println("Last Name is Valid... ");
+		   return true;
+		}
+		else 
+		{
+		   System.out.println("Last Name is not valid... ");	
+		   return false;
+		}
+	}
+	
+	public static boolean checkIfEmailValid(String email) {
+		
+		//String regex = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]\\w@[a-zA-Z0-9-]$";		
+		String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";  
+        Pattern p = Pattern.compile(regex);  
+        Matcher m = p.matcher(email);
+		
+		if(m.matches())
+		{
+			System.out.println("Email is Valid... "); 
+			return true;
+		}
+		else 
+		{	
+			System.out.println("Email is not valid... ");
+			return false;
+		}
+	}	
+
+	public static boolean checkIfMobileNumberValid(String mobNo) {		
+
+		String regex = "^(\\d{2}( )?)?(\\d{10})$";		  
+        Pattern p = Pattern.compile(regex);  
+        Matcher m = p.matcher(mobNo);
+		
+		if(m.matches())
+		{
+			System.out.println("Mobile No is Valid... "); 
+			return true;
+		}
+		else 
+		{
+			System.out.println("Mobile No is not valid... ");
+			return false;
+		}
+	}
+	
+	public static boolean checkIfPasswordValid(String password) {		
+
+    	String regex = "^(?=.*[0-9])"
+                     + "(?=.*[a-z])(?=.*[A-Z])"
+                     + "(?=.*[@#$%^&+=])"
+                     + "(?=\\S+$).{8,20}$";		  
+        Pattern p = Pattern.compile(regex);  
+        Matcher m = p.matcher(password);
+		
+		if(m.matches())
+		{
+			System.out.println("Password is Valid... ");
+			return true;
+		}
+		else
+		{
+			System.out.println("Password is not valid... ");			
+			return false;
+		}
+	}
+	
+	public static boolean checkIfPasswordValidUsingLambdaExp(String password) {		
+
+    	String regex = "^(?=.*[0-9])"
+                     + "(?=.*[a-z])(?=.*[A-Z])"
+                     + "(?=.*[@#$%^&+=])"
+                     + "(?=\\S+$).{8,20}$";		  
+        Pattern p = Pattern.compile(regex);  
+        Matcher m = p.matcher(password);
+		
+		if(m.matches())
+		{
+			System.out.println("Password is Valid... ");
+			return true;
+		}
+		else
+		{
+			System.out.println("Password is not valid... ");			
+			return false;
+		}
+	}
+}
